@@ -22,6 +22,17 @@
       --tag-bg: #1e2035;
     }
 
+    :root.light {
+      --bg: #f2f3f7;
+      --surface: #ffffff;
+      --border: #e0e2ed;
+      --accent: #6c63ff;
+      --accent-soft: #6c63ff18;
+      --text: #1a1d27;
+      --muted: #5c5f73;
+      --tag-bg: #f0f1f8;
+    }
+
     body {
       background: var(--bg);
       color: var(--text);
@@ -31,6 +42,7 @@
       align-items: center;
       justify-content: center;
       padding: 2rem;
+      transition: background 0.3s, color 0.3s;
     }
 
     .card {
@@ -41,6 +53,7 @@
       max-width: 640px;
       width: 100%;
       box-shadow: 0 0 60px rgba(108, 99, 255, 0.08);
+      transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
     }
 
     .header {
@@ -120,7 +133,7 @@
       display: flex;
       align-items: center;
       gap: 0.45rem;
-      transition: border-color 0.2s, background 0.2s;
+      transition: border-color 0.2s, background 0.2s, color 0.2s;
     }
 
     .skill:hover {
@@ -158,9 +171,39 @@
       0%, 100% { opacity: 1; }
       50% { opacity: 0.4; }
     }
+
+    .toggle-btn {
+      position: fixed;
+      top: 1.25rem;
+      right: 1.25rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.45rem 0.85rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: background 0.3s, border-color 0.2s, color 0.2s;
+      font-family: inherit;
+    }
+
+    .toggle-btn:hover {
+      border-color: var(--accent);
+      color: var(--text);
+    }
+
   </style>
 </head>
 <body>
+  <button class="toggle-btn" id="themeToggle" onclick="toggleTheme()">
+    <span id="themeIcon">☀️</span>
+    <span id="themeLabel">Light</span>
+  </button>
+
   <div class="card">
 
     <div class="header">
@@ -203,5 +246,12 @@
     </div>
 
   </div>
+  <script>
+    function toggleTheme() {
+      const isLight = document.documentElement.classList.toggle('light');
+      document.getElementById('themeIcon').textContent = isLight ? '🌙' : '☀️';
+      document.getElementById('themeLabel').textContent = isLight ? 'Dark' : 'Light';
+    }
+  </script>
 </body>
 </html>
