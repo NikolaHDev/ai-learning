@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nikola H. — Dev Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --border: #2a2d3e;
+      --accent: #6c63ff;
+      --accent-soft: #6c63ff22;
+      --text: #e8eaf0;
+      --muted: #8b8fa8;
+      --tag-bg: #1e2035;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 3rem;
+      max-width: 640px;
+      width: 100%;
+      box-shadow: 0 0 60px rgba(108, 99, 255, 0.08);
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #6c63ff, #a78bfa);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: white;
+      flex-shrink: 0;
+      box-shadow: 0 0 0 3px var(--accent-soft);
+    }
+
+    .name-block h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .name-block p {
+      color: var(--accent);
+      font-size: 0.9rem;
+      margin-top: 2px;
+      font-weight: 500;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 1.75rem 0;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .bio {
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 0.97rem;
+    }
+
+    .bio strong {
+      color: var(--text);
+    }
+
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.25rem;
+    }
+
+    .skill {
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.4rem 0.85rem;
+      font-size: 0.85rem;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .skill:hover {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .skill .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .footer {
+      margin-top: 2rem;
+      color: var(--muted);
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #4ade80;
+      box-shadow: 0 0 6px #4ade80;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+
+    <div class="header">
+      <div class="avatar">N</div>
+      <div class="name-block">
+        <h1>Nikola H.</h1>
+        <p>NikolaHDev</p>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <p class="section-label">About</p>
+    <p class="bio">
+      I'm a <strong>self-taught developer</strong> building from the ground up — starting with the terminal,
+      Git, and JavaScript. I enjoy understanding how tools work under the hood and applying what I learn
+      to real projects. Currently on a focused journey through <strong>AI and software development</strong>,
+      one commit at a time.
+    </p>
+
+    <hr class="divider" />
+
+    <p class="section-label">Skills I'm Learning</p>
+    <div class="skills-grid">
+      <div class="skill"><span class="dot"></span>Terminal & CLI</div>
+      <div class="skill"><span class="dot"></span>Git & GitHub</div>
+      <div class="skill"><span class="dot"></span>JavaScript</div>
+      <div class="skill"><span class="dot"></span>Functions & Logic</div>
+      <div class="skill"><span class="dot"></span>HTML & CSS</div>
+      <div class="skill"><span class="dot"></span>AI Tools</div>
+      <div class="skill"><span class="dot"></span>Package Managers</div>
+      <div class="skill"><span class="dot"></span>Version Control</div>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="footer">
+      <div class="status-dot"></div>
+      Actively learning · March 2026
+    </div>
+
+  </div>
+</body>
+</html>
