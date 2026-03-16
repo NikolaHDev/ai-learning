@@ -1,0 +1,55 @@
+# ==============================
+# SECRETS & CREDENTIALS
+# ==============================
+.env
+.env.*
+*.env
+*.key
+*.secret
+*.pem
+*.p12
+*.pfx
+secrets.txt
+config.local.*
+credentials.json
+auth.json
+
+# ==============================
+# CLAUDE CODE
+# ==============================
+.claude/
+
+# ==============================
+# NODE.JS (for Week 3 onward)
+# ==============================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+.npm
+.npmrc
+
+# ==============================
+# BUILD OUTPUT
+# ==============================
+dist/
+build/
+.cache/
+*.tgz
+
+# ==============================
+# WINDOWS SYSTEM FILES
+# ==============================
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# ==============================
+# EDITOR LEFTOVERS
+# ==============================
+.vscode/
+*.sublime-project
+*.sublime-workspace
+.tmp
+*~
