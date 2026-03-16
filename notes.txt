@@ -36,3 +36,8 @@ function paceCalculator(distance, timeInMinutes) {
 }
 
 These are a couple of examples of functions with arguments, conditions, and variables!
+
+Week 1 Overall: "What surprised me?, What confused me?, What do I want to learn more about?"
+- I wasn't necessarily surprised while learning these foundational concepts but more fascinated about how the back end tools work with each other. It felt surprisingly easy to set up chocolatey and git/GitHub on the computer as well as start saving and pushing code online. I'm sure as I keep learning that I will run into a bunch of surprises down the line.
+- I didn't find anything too confusing during this first week of learning. It was mainly reminding myself on function building and coding hygiene (spelling consistency!!).
+- I want to continue learning about creating functions and applications, proper techniques on staying organized, adding efficient update messages, and growing my general knowledge so I can create tools that make my life easier! 
