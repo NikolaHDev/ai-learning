@@ -7,3 +7,32 @@ Day 1 of learning AI tools - I'm building something real.
 Today I learned about "git init" which put git into my AI Learning folder and allowed me to start using the other git commands. I was able to configure my identity with "git config". I was able to see my folder's status with "git status" telling me that there were files that had not been saved yet. Then I staged those files by using "git add ." which told git that I want to save all the files in that folder. After staging I used "git commit -m "my first commit" to push my first save to Git (local, not GitHub online yet) and now when I check my "git status" it shows me that everything in that folder is saved! I can also use "git log" to check my save history and see my previous commitments and updates to the folder!
 
 Today I pushed my first git update to my repository! Looking forward to getting my reps in and pushing more updates!
+
+Today I learned about the browser console that can be used as a temporary scratchpad. I learned about two variable types ("let" for variables and "const" for constants). I also got a taste of creating my first couple functions in the console after setting the other arguments.
+Weekly Running Summary:
+function weekSummary(mon, tue, wed, thu, fri, sat, sun) {
+    let total = mon + tue + wed + thu + fri + sat + sun
+    let average = total / 7
+    console.log("Total miles: " + total)
+    console.log("Daily average: " + average)
+    if (total >= 20) {
+        console.log("Great week! Goal crushed 💪")
+    } else {
+        console.log("Keep pushing — you've got this! 🏃")
+    }
+}
+
+Pace Calculator:
+function paceCalculator(distance, timeInMinutes) {
+    let pacePerMile = timeInMinutes / distance
+    console.log("Total distance: " + distance + " miles")
+    console.log("Finish time: " + timeInMinutes + " minutes")
+    console.log("Pace: " + pacePerMile + " minutes per mile")
+    if (pacePerMile < 10) {
+        console.log("Speedy!")
+    } else {
+        console.log("Solid effort! Keep training")
+    }
+}
+
+These are a couple of examples of functions with arguments, conditions, and variables!
