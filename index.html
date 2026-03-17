@@ -196,6 +196,84 @@
       color: var(--text);
     }
 
+    /* ── Contact Form ── */
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .form-group label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.65rem 0.9rem;
+      font-size: 0.9rem;
+      color: var(--text);
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--muted);
+      opacity: 0.6;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-soft);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .submit-btn {
+      margin-top: 0.25rem;
+      width: 100%;
+      padding: 0.7rem 1rem;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.1s;
+    }
+
+    .submit-btn:hover { opacity: 0.88; }
+    .submit-btn:active { transform: scale(0.98); }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 1rem 0 0.25rem;
+      color: #4ade80;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
   </style>
 </head>
 <body>
@@ -240,6 +318,28 @@
 
     <hr class="divider" />
 
+    <p class="section-label">Contact</p>
+    <form id="contactForm" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="Your name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="you@example.com" required />
+        </div>
+      </div>
+      <div class="form-group" style="margin-top: 0.75rem;">
+        <label for="message">Message</label>
+        <textarea id="message" placeholder="What's on your mind?" required></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Send Message</button>
+      <p class="form-success" id="formSuccess">✓ Message sent — thanks for reaching out!</p>
+    </form>
+
+    <hr class="divider" />
+
     <div class="footer">
       <div class="status-dot"></div>
       Actively learning · March 2026
@@ -247,6 +347,20 @@
 
   </div>
   <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      document.getElementById('contactForm').style.opacity = '0.5';
+      document.getElementById('contactForm').style.pointerEvents = 'none';
+      setTimeout(() => {
+        document.getElementById('contactForm').style.opacity = '1';
+        document.getElementById('contactForm').style.pointerEvents = '';
+        document.getElementById('contactForm').reset();
+        const success = document.getElementById('formSuccess');
+        success.style.display = 'block';
+        setTimeout(() => { success.style.display = 'none'; }, 4000);
+      }, 600);
+    }
+
     function toggleTheme() {
       const isLight = document.documentElement.classList.toggle('light');
       document.getElementById('themeIcon').textContent = isLight ? '🌙' : '☀️';
