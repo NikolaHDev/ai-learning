@@ -274,6 +274,72 @@
       font-weight: 500;
     }
 
+    /* ── GitHub Stats ── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.6rem;
+      margin-top: 0.25rem;
+    }
+
+    .stat-tile {
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.75rem 0.6rem;
+      text-align: center;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .stat-tile:hover {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .stat-tile .stat-value {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+
+    .stat-tile .stat-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-top: 0.3rem;
+    }
+
+    .github-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 0.85rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      opacity: 0.85;
+      transition: opacity 0.2s;
+    }
+
+    .github-link:hover { opacity: 1; }
+
+    .stats-loading {
+      color: var(--muted);
+      font-size: 0.85rem;
+      padding: 0.4rem 0;
+    }
+
+    .stats-error {
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-style: italic;
+    }
+
   </style>
 </head>
 <body>
@@ -318,6 +384,13 @@
 
     <hr class="divider" />
 
+    <p class="section-label">GitHub Activity</p>
+    <div id="githubStats">
+      <p class="stats-loading">Loading GitHub stats…</p>
+    </div>
+
+    <hr class="divider" />
+
     <p class="section-label">Contact</p>
     <form id="contactForm" onsubmit="handleSubmit(event)">
       <div class="form-row">
@@ -347,6 +420,43 @@
 
   </div>
   <script>
+    async function loadGithubStats() {
+      const container = document.getElementById('githubStats');
+      try {
+        const res = await fetch('https://api.github.com/users/NikolaHDev');
+        if (!res.ok) throw new Error('Request failed');
+        const data = await res.json();
+
+        const since = new Date(data.created_at).getFullYear();
+        container.innerHTML = `
+          <div class="stats-grid">
+            <div class="stat-tile">
+              <div class="stat-value">${data.public_repos}</div>
+              <div class="stat-label">Public Repos</div>
+            </div>
+            <div class="stat-tile">
+              <div class="stat-value">${since}</div>
+              <div class="stat-label">Member Since</div>
+            </div>
+            <div class="stat-tile">
+              <div class="stat-value">${data.followers}</div>
+              <div class="stat-label">Followers</div>
+            </div>
+            <div class="stat-tile">
+              <div class="stat-value">${data.following}</div>
+              <div class="stat-label">Following</div>
+            </div>
+          </div>
+          <a class="github-link" href="https://github.com/${data.login}" target="_blank" rel="noopener">
+            ↗ github.com/${data.login}
+          </a>`;
+      } catch (err) {
+        container.innerHTML = `<p class="stats-error">Could not load GitHub stats — check back later.</p>`;
+      }
+    }
+
+    loadGithubStats();
+
     function handleSubmit(e) {
       e.preventDefault();
       document.getElementById('contactForm').style.opacity = '0.5';
