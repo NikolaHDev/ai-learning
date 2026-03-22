@@ -45,3 +45,16 @@ Week 1 Overall: "What surprised me?, What confused me?, What do I want to learn 
 git status = checks local Git only
 It does NOT tell you if you've pushed to GitHub
 Clean status just means everything is committed locally
+
+Cowork Learning and Reflection:
+What Cowork did well this week:
+- Long multi-step research tasks that would take you 30-45 minutes manually — done in 2-3 minutes
+- Reading multiple files and synthesizing across them intelligently — the progress report pulled from your notes, HTML, and git history simultaneously
+- Document generation with real formatting — the Word docs came out professional without you touching a template
+- Staying consistent with your instructions — it remembered NikolaHDev, your folder structure, your tone preference
+- Thinking out loud before executing — the "let me take a look first" behavior means you can catch misunderstandings before it goes down the wrong path
+
+Where it fell short:
+- Anti-bot walls on career pages and Google Sheets — you nailed this one. It's the biggest real-world friction point and there's no elegant fix. Some sites simply don't want automated access
+- It can't fix bugs in its own automations — when the CSV issue came up you had to engineer the workaround yourself rather than it self-correcting
+- No memory between sessions without global instructions — without that setup step it treats every task as if it's never met you
